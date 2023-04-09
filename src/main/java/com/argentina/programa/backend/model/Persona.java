@@ -43,4 +43,7 @@ public class Persona {
     }
 
 
+    public String getUserName() {
+        return "carolinaluciacampi";
+    }
 }
