@@ -3,6 +3,7 @@ package com.argentina.programa.backend.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -46,9 +47,10 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // We don't need CSRF for this example
-        http.csrf().disable()
+        http.cors().and().csrf().disable()
                 // dont authenticate this particular request
                 .authorizeHttpRequests()
+                    .requestMatchers(HttpMethod.OPTIONS,"**").permitAll()//allow CORS option calls
                     .requestMatchers("/authenticate")
                     .permitAll()
                     .and()

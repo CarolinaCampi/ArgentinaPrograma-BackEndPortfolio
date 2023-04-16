@@ -3,10 +3,7 @@ package com.argentina.programa.backend.config;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
-import java.util.function.Function;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -54,7 +51,7 @@ public class JwtTokenUtil implements Serializable {
         return decoded.getExpiresAt();
     }
     //check if the token has expired
-    private Boolean isTokenExpired(String token) {
+    private Boolean isTokenNotExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
@@ -74,15 +71,15 @@ public class JwtTokenUtil implements Serializable {
                 .withSubject(subject)
                 //.withIssuer("Carolina")
                 //.withClaim("userId", "1234")
-                .withIssuedAt(new Date())
+                //.withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
                 .withJWTId(UUID.randomUUID().toString())
-                .withNotBefore(new Date(System.currentTimeMillis() + 1000L))
+                .withNotBefore(new Date(System.currentTimeMillis()))
                 .sign(getAlgorithm(jwtSecret));
     }
 
     //validate token
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        return (username.equals(userDetails.getUsername()) && isTokenNotExpired(token));
     }}
