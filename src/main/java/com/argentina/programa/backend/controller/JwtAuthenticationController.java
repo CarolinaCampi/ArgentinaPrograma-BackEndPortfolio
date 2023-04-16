@@ -1,7 +1,5 @@
 package com.argentina.programa.backend.controller;
 
-import java.util.Objects;
-
 import com.argentina.programa.backend.config.JwtTokenUtil;
 import com.argentina.programa.backend.model.JwtRequest;
 import com.argentina.programa.backend.model.JwtResponse;
@@ -18,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 @RestController
 @CrossOrigin
@@ -47,8 +43,6 @@ public class JwtAuthenticationController {
     }
 
     private void authenticate(String username, String password) throws Exception {
-        // TODO: FALTA CHEQUEAR QUE LA PASSWORD SEA CORRECTA, antes de construir UsernamePasswordAuthenticationToken
-
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (DisabledException e) {
