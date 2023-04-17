@@ -46,7 +46,7 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // We don't need CSRF for this example
+        // We don't need CORS or CSRF for this case
         http.cors().and().csrf().disable()
                 // dont authenticate this particular request
                 .authorizeHttpRequests()
@@ -59,8 +59,7 @@ public class WebSecurityConfig {
                     .anyRequest()
                     .authenticated()
                     .and().
-                // make sure we use stateless session; session won't be used to
-                // store user's state.
+                // make sure we use stateless session; session won't be used to store user's state.
                         exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

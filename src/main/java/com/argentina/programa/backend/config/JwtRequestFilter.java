@@ -30,7 +30,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         // Log added to understand the process
-        logger.info("Validando token para request " + request.getRequestURI());
+        //logger.info("Validando token para request " + request.getRequestURI());
 
         final String requestTokenHeader = request.getHeader("Authorization");
 
@@ -50,7 +50,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             logger.warn("JWT Token does not begin with Bearer String");
         }
 
-        // Once we get the token validate it.
+        // Once we get the token, validate it.
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.jwtUserDetailsService.loadUserByUsername(username);
             // if token is valid configure Spring Security to manually set
@@ -66,10 +66,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         }
+        logger.info(response);
         chain.doFilter(request, response);
     }
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        return request.getRequestURI().equals("/authenticate");
-    }
+//    @Override
+//    protected boolean shouldNotFilter(HttpServletRequest request) {
+//        return request.getRequestURI().equals("/authenticate");
+//    }
 }

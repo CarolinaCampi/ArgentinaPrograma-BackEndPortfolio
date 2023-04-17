@@ -51,14 +51,15 @@ public class JwtTokenUtil implements Serializable {
         return decoded.getExpiresAt();
     }
     //check if the token has expired
-    private Boolean isTokenNotExpired(String token) {
+    private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
+        //System.out.println(expiration);
         return expiration.before(new Date());
     }
 
     //generate token for user
     public String generateToken(UserDetails userDetails) {
-        return doGenerateToken(userDetails.getUsername());
+       return doGenerateToken(userDetails.getUsername());
     }
 
     //while creating the token
@@ -74,12 +75,12 @@ public class JwtTokenUtil implements Serializable {
                 //.withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
                 .withJWTId(UUID.randomUUID().toString())
-                .withNotBefore(new Date(System.currentTimeMillis()))
+                //withNotBefore(new Date(System.currentTimeMillis()))
                 .sign(getAlgorithm(jwtSecret));
     }
 
     //validate token
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
-        return (username.equals(userDetails.getUsername()) && isTokenNotExpired(token));
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }}
