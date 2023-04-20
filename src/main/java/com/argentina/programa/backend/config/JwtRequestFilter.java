@@ -30,7 +30,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         // Log added to understand the process
-        //logger.info("Validando token para request " + request.getRequestURI());
+        logger.info("Validando token para request " + request.getRequestURI());
 
         final String requestTokenHeader = request.getHeader("Authorization");
 
