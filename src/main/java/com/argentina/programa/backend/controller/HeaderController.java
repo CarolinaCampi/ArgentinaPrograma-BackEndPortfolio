@@ -27,7 +27,7 @@ public class HeaderController {
         headServ.borrarHeader(id);
     }
 
-    @GetMapping ("/Header/{id}")
+    @GetMapping ("/header/{id}")
     @ResponseBody
     public Header buscarHeader(@PathVariable Long id) {
         return headServ.buscarHeader(id);
