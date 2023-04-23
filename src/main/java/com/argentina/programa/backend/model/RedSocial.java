@@ -18,7 +18,7 @@ public class RedSocial {
     private String url_red_social;
     private String url_logo_red_social;
     private String alt_text_logo;
-    // porque esta hardodeado
+    // The value for persona_id is harcoded to the value 1 because, for now, this template will be used only for one person.
     private Long persona_id = 1L;
 
     public RedSocial() {
