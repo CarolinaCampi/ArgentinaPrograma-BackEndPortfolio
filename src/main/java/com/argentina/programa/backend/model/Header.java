@@ -9,12 +9,12 @@ import lombok.Setter;
 @Entity
 public class Header {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String url_logo_pagina;
     private String titulo_pagina;
-    // porque esta hardodeado
+    // The value for persona_id is harcoded to the value 1 because, for now, this template will be used only for one person.
     private Long persona_id = 1L;
 
     public Header() {
