@@ -1,0 +1,11 @@
+package com.argentina.programa.backend.repository;
+
+
+import com.argentina.programa.backend.model.EmpresaInstitucion;
+import com.argentina.programa.backend.model.Experiencia;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IEmpresaInstitucionRepository extends JpaRepository<EmpresaInstitucion, Long> {
+}

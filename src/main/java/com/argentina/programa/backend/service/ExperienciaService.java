@@ -14,7 +14,7 @@ public class ExperienciaService implements IExperienciaService{
     public IExperienciaRepository expRepo;
 
     @Override
-    public List<Experiencia> verRedesSociales(){
+    public List<Experiencia> verExperiencias(){
         return expRepo.findAll();
     };
     @Override
