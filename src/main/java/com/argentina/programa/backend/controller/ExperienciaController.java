@@ -14,8 +14,8 @@ public class ExperienciaController {
     private IExperienciaService expServ;
 
     @PostMapping("/experiencia")
-    public void agregarExperiencia (@RequestBody Experiencia head) {
-        expServ.crearExperiencia(head);
+    public void agregarExperiencia (@RequestBody Experiencia exp) {
+        expServ.crearExperiencia(exp);
     }
     @GetMapping("/experiencia")
     @ResponseBody
@@ -33,8 +33,8 @@ public class ExperienciaController {
         return expServ.buscarExperiencia(id);
     }
     @PutMapping ("/experiencia")
-    public void modificarExperiencia(@RequestBody Experiencia head){
-        expServ.modificarExperiencia(head);
+    public void modificarExperiencia(@RequestBody Experiencia exp){
+        expServ.modificarExperiencia(exp);
     }
 
 }

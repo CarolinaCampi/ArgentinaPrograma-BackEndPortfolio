@@ -33,8 +33,8 @@ public class RedSocialController {
         return redSocialServ.buscarRedSocial(id);
     }
     @PutMapping ("/red_social")
-    public void modificarRedSocial(@RequestBody RedSocial head){
-        redSocialServ.modificarRedSocial(head);
+    public void modificarRedSocial(@RequestBody RedSocial red){
+        redSocialServ.modificarRedSocial(red);
     }
 
 }

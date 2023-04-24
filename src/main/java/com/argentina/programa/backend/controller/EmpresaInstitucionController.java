@@ -33,8 +33,8 @@ public class EmpresaInstitucionController {
         return empInstServ.buscarEmpresaInstitucion(id);
     }
     @PutMapping ("/empresa_institucion")
-    public void modificarEmpresaInstitucion(@RequestBody EmpresaInstitucion head){
-        empInstServ.modificarEmpresaInstitucion(head);
+    public void modificarEmpresaInstitucion(@RequestBody EmpresaInstitucion empInst){
+        empInstServ.modificarEmpresaInstitucion(empInst);
     }
 
 }
