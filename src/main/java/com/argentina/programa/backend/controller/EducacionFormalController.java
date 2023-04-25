@@ -11,30 +11,30 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class EducacionFormalController {
     @Autowired
-    private IEducacionFormalService empInstServ;
+    private IEducacionFormalService eduFormServ;
 
     @PostMapping("/educacion_formal")
-    public void agregarEducacionFormal (@RequestBody EducacionFormal empInst) {
-        empInstServ.crearEducacionFormal(empInst);
+    public void agregarEducacionFormal (@RequestBody EducacionFormal eduForm) {
+        eduFormServ.crearEducacionFormal(eduForm);
     }
     @GetMapping("/educacion_formal")
     @ResponseBody
     public List<EducacionFormal> verEducacionFormales(){
-        return empInstServ.verEducacionFormales();
+        return eduFormServ.verEducacionFormales();
     }
     @DeleteMapping ("/educacion_formal/{id}")
     public void borrarEducacionFormal(@PathVariable Long id) {
-        empInstServ.borrarEducacionFormal(id);
+        eduFormServ.borrarEducacionFormal(id);
     }
 
     @GetMapping ("/educacion_formal/{id}")
     @ResponseBody
     public EducacionFormal buscarEducacionFormal(@PathVariable Long id) {
-        return empInstServ.buscarEducacionFormal(id);
+        return eduFormServ.buscarEducacionFormal(id);
     }
     @PutMapping ("/educacion_formal")
     public void modificarEducacionFormal(@RequestBody EducacionFormal eduForm){
-        empInstServ.modificarEducacionFormal(eduForm);
+        eduFormServ.modificarEducacionFormal(eduForm);
     }
 
 }
