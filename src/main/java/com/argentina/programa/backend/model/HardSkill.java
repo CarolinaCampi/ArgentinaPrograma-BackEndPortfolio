@@ -11,25 +11,23 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Entity (name = "curso")
-public class Curso {
+@Entity (name = "hard_skills")
+public class HardSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String titulo;
-    private Date fecha_fin;
+    private String skill;
+    private int nivel;
     // The value for persona_id is harcoded to the value 1 because, for now, this template will be used only for one person.
     private Long persona_id = 1L;
-    private Long empresa_institucion_id;
 
-    public Curso() {
+    public HardSkill() {
     }
 
-    public Curso(Long id, String titulo, Date fecha_fin, Long empresa_institucion_id) {
+    public HardSkill(Long id, String skill, int nivel) {
         this.id = id;
-        this.titulo = titulo;
-        this.fecha_fin = fecha_fin;
-        this.empresa_institucion_id = empresa_institucion_id;
+        this.skill = skill;
+        this.nivel = nivel;
     }
 }
