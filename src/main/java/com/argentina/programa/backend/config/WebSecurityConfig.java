@@ -51,8 +51,8 @@ public class WebSecurityConfig {
                 // dont authenticate this particular request
                 .authorizeHttpRequests()
                     .requestMatchers(HttpMethod.OPTIONS,"**").permitAll()//allow CORS option calls
-                    .requestMatchers("/authenticate")
-                    .permitAll()
+                    .requestMatchers("/authenticate").permitAll()
+                    .requestMatchers(HttpMethod.GET, "**").permitAll()//allow all GET methods
                     .and()
                 // all other requests need to be authenticated
                 .authorizeHttpRequests()
