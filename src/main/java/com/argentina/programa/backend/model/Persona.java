@@ -1,9 +1,6 @@
 package com.argentina.programa.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,12 +15,17 @@ public class Persona {
 
     private String nombre;
     private String apellido;
+    @Column(columnDefinition = "TEXT")
     private String domicilio;
+    @Column(columnDefinition = "TEXT")
     private String posicion;
     private String telefono;
     private String correo;
+    @Column(columnDefinition = "TEXT")
     private String sobre_mi;
+    @Column(columnDefinition = "TEXT")
     private String url_foto;
+    @Column(columnDefinition = "TEXT")
     private String url_banner;
 
     public Persona() {

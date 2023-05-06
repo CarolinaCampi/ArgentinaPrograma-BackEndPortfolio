@@ -1,9 +1,6 @@
 package com.argentina.programa.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +12,9 @@ public class RedSocial {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String url_red_social;
+    @Column(columnDefinition = "TEXT")
     private String url_logo_red_social;
     private String alt_text_logo;
     // The value for persona_id is harcoded to the value 1 because, for now, this template will be used only for one person.

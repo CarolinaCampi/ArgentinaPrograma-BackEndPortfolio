@@ -12,6 +12,7 @@ public class Header {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String url_logo_pagina;
     private String titulo_pagina;
     // The value for persona_id is harcoded to the value 1 because, for now, this template will be used only for one person.

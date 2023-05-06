@@ -1,9 +1,6 @@
 package com.argentina.programa.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,11 +14,13 @@ public class Experiencia {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String rol;
     private Long empresa_institucion_id;
     private boolean es_trabajo_actual;
     private Date fecha_inicio;
     private Date fecha_fin;
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
     // The value for persona_id is harcoded to the value 1 because, for now, this template will be used only for one person.
     private Long persona_id = 1L;
