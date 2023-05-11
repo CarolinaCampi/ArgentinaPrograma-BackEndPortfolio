@@ -48,7 +48,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // We don't need CORS or CSRF for this case
         http.cors().and().csrf().disable()
-                // dont authenticate this particular request
+                // don't authenticate this particular request
                 .authorizeHttpRequests()
                     .requestMatchers(HttpMethod.OPTIONS,"**").permitAll()//allow CORS option calls
                     .requestMatchers("/authenticate").permitAll()

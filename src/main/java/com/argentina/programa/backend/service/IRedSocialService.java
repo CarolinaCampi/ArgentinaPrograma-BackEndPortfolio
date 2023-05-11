@@ -1,6 +1,5 @@
 package com.argentina.programa.backend.service;
 
-import com.argentina.programa.backend.model.Header;
 import com.argentina.programa.backend.model.RedSocial;
 
 import java.util.List;

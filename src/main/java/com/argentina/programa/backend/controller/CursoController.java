@@ -22,6 +22,7 @@ public class CursoController {
     public List<Curso> verCursos(){
         return cursoServ.verCursos();
     }
+
     @DeleteMapping ("/curso/{id}")
     public void borrarCurso(@PathVariable Long id) {
         cursoServ.borrarCurso(id);
@@ -32,6 +33,7 @@ public class CursoController {
     public Curso buscarCurso(@PathVariable Long id) {
         return cursoServ.buscarCurso(id);
     }
+
     @PutMapping ("/curso")
     public void modificarCurso(@RequestBody Curso curso){
         cursoServ.modificarCurso(curso);

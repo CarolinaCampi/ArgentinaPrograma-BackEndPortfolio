@@ -31,7 +31,7 @@ public class JwtTokenUtil implements Serializable {
         return Algorithm.HMAC256(secret);
     }
 
-    //retrieve username from jwt token
+    // retrieve username from jwt token
     public String getUsernameFromToken(String token) {
         JWTVerifier verifier = JWT.require(getAlgorithm(jwtSecret))
                 //.withIssuer("Carolina")
@@ -41,7 +41,7 @@ public class JwtTokenUtil implements Serializable {
         return decoded.getSubject();
     }
 
-    //retrieve expiration date from jwt token
+    // retrieve expiration date from jwt token
     public Date getExpirationDateFromToken(String token) {
         JWTVerifier verifier = JWT.require(getAlgorithm(jwtSecret))
                 //.withIssuer("Carolina")
@@ -50,14 +50,14 @@ public class JwtTokenUtil implements Serializable {
 
         return decoded.getExpiresAt();
     }
-    //check if the token has expired
+    // check if the token has expired
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         //System.out.println(expiration);
         return expiration.before(new Date());
     }
 
-    //generate token for user
+    // generate token for user
     public String generateToken(UserDetails userDetails) {
        return doGenerateToken(userDetails.getUsername());
     }
@@ -79,7 +79,7 @@ public class JwtTokenUtil implements Serializable {
                 .sign(getAlgorithm(jwtSecret));
     }
 
-    //validate token
+    // validate token
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));

@@ -23,8 +23,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
-        // Next three lines added to understand how the process works:
-        System.out.println("Pasamos por JwtAuthenticationEntryPoint");
+
         System.out.println(authException.getMessage());
         authException.printStackTrace();
 
